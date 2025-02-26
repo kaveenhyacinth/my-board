@@ -12,8 +12,21 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'black': '#000112',
+                'very-black': '#20212C',
+                'dark-grey': '#2B2C37',
+                'dark-lines': '#3E3F4E',
+                'medium-grey': '#828FA3',
+                'lines': '#E4EBFA',
+                'light-grey': '#F4F7FD',
+                'purple': '#635FC7',
+                'purple-light': '#A8A4FF',
+                'red': '#EA5555',
+                'red-light': '#FF9898'
+            }
         },
     },
     plugins: [],
