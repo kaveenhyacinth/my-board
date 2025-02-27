@@ -1,6 +1,6 @@
 @props(['id'])
 
-<x-modal.wrapper :$id>
+<x-modal.create-wrapper :$id>
     <div class="p-8">
         <h2 class="text-lg font-semibold text-black">Add New Board</h2>
         <form class="mt-6" action="/boards" method="POST">
@@ -35,4 +35,4 @@
             <x-form.button>Create Board</x-form.button>
         </form>
     </div>
-</x-modal.wrapper>
+</x-modal.create-wrapper>

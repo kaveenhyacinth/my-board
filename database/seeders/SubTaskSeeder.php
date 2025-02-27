@@ -13,6 +13,6 @@ class SubTaskSeeder extends Seeder
      */
     public function run(): void
     {
-        SubTask::factory(10)->create();
+        SubTask::factory(20)->create();
     }
 }

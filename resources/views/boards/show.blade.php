@@ -34,8 +34,8 @@
                             ({{count($column->tasks)}})</h4>
                         <div class="mt-4">
                             @foreach($column->tasks as $task)
-                                <x-task.card>
-                                    <p class="text-black text-[15px]/6 font-semibold">{{ $task->title }}</p>
+                                <x-task.card :$task :$board>
+                                    <p class="text-black text-[15px]/6 font-semibold mb-2">{{ $task->title }}</p>
                                     @if(count($task->subTasks) == 1)
                                         <p class="text-medium-grey text-xs font-semibold tracking-[0.02em]">{{ count($task->subTasks) }}
                                             sub task</p>
@@ -63,4 +63,8 @@
     </div>
     <x-modal.create-column id="create-column" :boardId="$board->id"/>
     <x-modal.create-task id="create-task" :board="$board"/>
+
+    @if(isset($selectedTask))
+        <x-modal.show-task id="show-task" :task="$selectedTask" :$board />
+    @endif
 @endsection

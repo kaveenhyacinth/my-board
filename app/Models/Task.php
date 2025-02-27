@@ -19,4 +19,9 @@
         {
             return $this->hasMany(SubTask::class);
         }
+
+        public function column()
+        {
+            return $this->belongsTo(Column::class);
+        }
     }

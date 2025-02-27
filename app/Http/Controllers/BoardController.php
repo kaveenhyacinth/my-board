@@ -15,6 +15,7 @@
         {
             $board->load(['columns.tasks.subTasks']);
             $selectedBoardId = $board->id;
+
             return view('boards.show', [
                 'board' => $board,
                 'selectedBoardId' => $selectedBoardId,
@@ -43,7 +44,8 @@
                 }
             }
 
-            return redirect("/boards/$board->id")->with('success', 'create-board');
+            // return redirect("/boards/$board->id")->with('success', 'create-board');
+            return redirect()->route('boards.show', ['board' => $board->id])->with('success', 'create-board');
         }
 
         public function storeColumn(Board $board)
@@ -57,6 +59,7 @@
                 'order' => $board->columns()->count() + 1,
             ]);
 
-            return redirect("/boards/$board->id")->with('success', 'create-column');
+            // return redirect("/boards/$board->id")->with('success', 'create-column');
+            return redirect()->route('boards.show', ['board' => $board->id])->with('success', 'create-column');
         }
     }
