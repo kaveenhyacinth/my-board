@@ -20,4 +20,18 @@
                 'selectedBoardId' => $selectedBoardId,
             ]);
         }
+
+        public function storeColumn(Board $board)
+        {
+            $validated = request()->validate([
+                'name' => ['required'],
+            ]);
+
+            $board->columns()->create([
+                'name' => $validated['name'],
+                'order' => $board->columns()->count() + 1,
+            ]);
+
+            return redirect("/boards/{$board->id}");
+        }
     }

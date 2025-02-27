@@ -22,7 +22,7 @@
         <div class="flex flex-col gap-y-8 items-center justify-center h-full">
             <p class="text-medium-grey text-lg font-semibold">This board is empty. Create a new column to get
                 started.</p>
-            <x-button>+ Add New Column</x-button>
+            <x-button data-modal-open="create-column">+ Add New Column</x-button>
         </div>
     @else
         <div class="overflow-scroll h-full p-4">
@@ -60,5 +60,5 @@
     @endif
     <div>
     </div>
-    <x-modal.create-column id="create-column"/>
+    <x-modal.create-column id="create-column" :boardId="$board->id"/>
 @endsection

@@ -13,6 +13,8 @@
         /** @use HasFactory<ColumnFactory> */
         use HasFactory;
 
+        protected $fillable = ['name', 'order'];
+
         public function board(): BelongsTo
         {
             return $this->belongsTo(Board::class);
