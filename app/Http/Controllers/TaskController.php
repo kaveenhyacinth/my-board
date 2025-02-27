@@ -70,7 +70,7 @@
                 ]);
             }
 
-            return redirect()->route('tasks.show', ['board' => $task->board_id, 'task' => $task->id]);
+            return redirect()->route('boards.show', ['board' => $task->board_id]);
         }
 
         public function update(Request $request, Task $task)

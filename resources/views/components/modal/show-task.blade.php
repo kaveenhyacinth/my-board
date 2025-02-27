@@ -18,19 +18,20 @@
             <ul>
                 @foreach($task->subTasks as $subtask)
                     <li class="p-2 flex items-center gap-x-2 bg-light-grey rounded mb-2">
-                        <form action="/tasks/{{ $task->id }}/subtasks/{{ $subtask->id }}" method="POST"
-                              class="flex gap-x-2">
+                        <form action="/tasks/{{ $task->id }}/subtasks/{{ $subtask->id }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <input id="{{ $subtask->id }}"
-                                   name="completed"
-                                   type="checkbox"
-                                   data-id="{{ $subtask->id }}"
-                                   onchange="submitForm(this)"
-                                {{ $subtask->completed ? 'checked' : '' }}
-                            />
-                            <label for="{{ $subtask->id }}"
-                                   class="{{ $subtask->completed ? 'line-through text-medium-grey' : '' }} text-xs">{{ $subtask->title }}</label>
+                            <div class="flex gap-x-2">
+                                <input id="{{ $subtask->id }}"
+                                       name="completed"
+                                       type="checkbox"
+                                       data-id="{{ $subtask->id }}"
+                                       onchange="submitForm(this)"
+                                    {{ $subtask->completed ? 'checked' : '' }}
+                                />
+                                <label for="{{ $subtask->id }}"
+                                       class="{{ $subtask->completed ? 'line-through text-medium-grey' : '' }} text-xs">{{ $subtask->title }}</label>
+                            </div>
                         </form>
                     </li>
                 @endforeach
