@@ -11,6 +11,10 @@
         /** @use HasFactory<\Database\Factories\TaskFactory> */
         use HasFactory;
 
+        protected $guarded = [
+            'id'
+        ];
+
         public function subTasks(): HasMany
         {
             return $this->hasMany(SubTask::class);

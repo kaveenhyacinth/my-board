@@ -6,6 +6,7 @@
     Route::redirect('/', '/boards');
 
     Route::get('/boards', [BoardController::class, 'index']);
+    Route::post('/boards', [BoardController::class, 'store']);
     Route::get('/boards/{board}', [BoardController::class, 'show']);
 
     Route::post('/boards/{board}/columns', [BoardController::class, 'storeColumn']);

@@ -13,7 +13,9 @@
         /** @use HasFactory<ColumnFactory> */
         use HasFactory;
 
-        protected $fillable = ['name', 'order'];
+        protected $guarded = [
+            'id'
+        ];
 
         public function board(): BelongsTo
         {

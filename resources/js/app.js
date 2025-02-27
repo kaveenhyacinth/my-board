@@ -1,2 +1,3 @@
 import './bootstrap';
-import './modal-controller.js'
+import './controllers/modal.js'
+import './controllers/column-field.js'

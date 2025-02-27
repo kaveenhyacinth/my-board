@@ -21,6 +21,31 @@
             ]);
         }
 
+        public function store()
+        {
+            $validated = request()->validate([
+                'title' => ['required', 'min:3'],
+            ]);
+
+            $board = Board::create([
+                'title' => $validated['title'],
+                'user_id' => 1,
+            ]);
+
+            $columns = request('column');
+            if (!empty($columns)) {
+                $columnIndex = $board->columns()->count();
+                foreach ($columns as $column) {
+                    $board->columns()->create([
+                        'name' => $column,
+                        'order' => ++$columnIndex,
+                    ]);
+                }
+            }
+
+            return redirect("/boards/$board->id")->with('success', 'create-board');
+        }
+
         public function storeColumn(Board $board)
         {
             $validated = request()->validate([
