@@ -7,7 +7,8 @@
             @csrf
             <x-form.group>
                 <x-form.label for="title">Name</x-form.label>
-                <x-form.input type="text" name="title" placeholder="e.g. Web Design" required/>
+                <x-form.input type="text" name="title" placeholder="e.g. Web Design" :value="old('title')" required/>
+                <x-form.error name="title" />
             </x-form.group>
             <x-form.group>
                 <x-form.label for="column[]">Columns</x-form.label>

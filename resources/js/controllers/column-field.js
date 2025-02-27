@@ -12,11 +12,10 @@ function addNewColumnField() {
     }
 
     const columnFieldsContainer = getColumnFieldContainer();
-    const columnField = document.querySelector('#column-fields-container #column-field-1');
 
     const newColumnField = document.createElement('div');
     newColumnField.id = `column-field-${columnIndex}`;
-    newColumnField.classList = columnField.classList;
+    newColumnField.classList = 'mb-3 flex items-center gap-x-2';
     newColumnField.innerHTML = `
         <input type="text" name="column[]" placeholder="e.g. To Do" required class="block w-full h-10 px-4 py-2 border border-medium-grey/25 rounded" />
         <button

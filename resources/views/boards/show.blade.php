@@ -10,7 +10,8 @@
     <div class="h-full px-8 flex items-center justify-between border-b border-lines">
         <h1 class="text-black text-2xl font-semibold">{{ $board->title }}</h1>
         <div>
-            <x-button class="{{ !$hasColumns ? 'bg-purple-light/30 hover:bg-purple-light/30 cursor-not-allowed' : '' }}"
+            <x-button data-modal-open="create-task"
+                      class="{{ !$hasColumns ? 'bg-purple-light/30 hover:bg-purple-light/30 cursor-not-allowed' : '' }}"
                       :disabled="!$hasColumns">+ Add New Task
             </x-button>
         </div>
@@ -61,4 +62,5 @@
     <div>
     </div>
     <x-modal.create-column id="create-column" :boardId="$board->id"/>
+    <x-modal.create-task id="create-task" :board="$board"/>
 @endsection
