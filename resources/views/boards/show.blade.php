@@ -49,6 +49,7 @@
                 @endforeach
                 <div class="pr-6 mt-8">
                     <button
+                        data-modal-open="create-column"
                         class="min-w-[280px] bg-medium-grey/10 h-full flex flex-col justify-center items-center text-2xl text-medium-grey font-semibold">
                         + New Column
                     </button>
@@ -59,4 +60,5 @@
     @endif
     <div>
     </div>
+    <x-modal.create-column id="create-column"/>
 @endsection
