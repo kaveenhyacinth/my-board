@@ -64,7 +64,11 @@
     <x-modal.create-column id="create-column" :boardId="$board->id"/>
     <x-modal.create-task id="create-task" :board="$board"/>
 
-    @if(isset($selectedTask))
-        <x-modal.show-task id="show-task" :task="$selectedTask" :$board />
+    @if(isset($action))
+        @if($action === 'edit-task')
+            <x-modal.edit-task id="edit-task" :$board :task="$selectedTask"/>
+        @elseif($action === 'show-task')
+            <x-modal.show-task id="show-task" :task="$selectedTask" :$board/>
+        @endif
     @endif
 @endsection

@@ -27,7 +27,7 @@
                         <x-form.input type="text" name="subtask[]" placeholder="e.g. Make coffee" required/>
                         <x-form.button
                             type="button"
-                            class="bg-red/10 hover:bg-red/20 !text-red w-10 !rounded"
+                            class="bg-red/10 hover:bg-red/20 !text-red !w-10 !rounded"
                             onclick="removeSubtaskField(1)"
                         >
                             x

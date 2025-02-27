@@ -1,17 +1,17 @@
 let subtaskIndex = 2; // 1 is already there
 let subtaskCount = 2;
 
-function getSubtaskFieldContainer() {
-    return document.getElementById('subtask-fields-container');
+function getSubtaskFieldContainer(selector) {
+    return document.getElementById(selector ?? 'subtask-fields-container');
 }
 
-function addNewSubtaskField() {
+function addNewSubtaskField(selector) {
     if (subtaskCount > 5) {
         alert('You can only have up to 5 subtasks when creating a new board. Don\'t worry, you can always add more subtasks later.');
         return
     }
 
-    const subtaskFieldContainer = getSubtaskFieldContainer();
+    const subtaskFieldContainer = getSubtaskFieldContainer(selector);
 
     const newSubtaskField = document.createElement('div');
     newSubtaskField.id = `subtask-field-${subtaskIndex}`;
@@ -21,7 +21,7 @@ function addNewSubtaskField() {
         <button
             type="button"
             class="block h-10 bg-red/10 hover:bg-red/20 text-red w-10 rounded"
-            onclick="removeSubtaskField(${subtaskIndex})"
+            onclick="removeSubtaskField(${subtaskIndex}, ${selector})"
         >
             x
         </button>
@@ -33,10 +33,10 @@ function addNewSubtaskField() {
     subtaskCount++;
 }
 
-function removeSubtaskField(index) {
-    const subtaskFieldContainer = getSubtaskFieldContainer();
+function removeSubtaskField(index, selector) {
+    const subtaskFieldContainer = getSubtaskFieldContainer(selector);
     const subtaskField = document.getElementById(`subtask-field-${index}`);
-    subtaskFieldContainer.removeChild(subtaskField);
+    subtaskFieldContainer?.removeChild(subtaskField);
     subtaskCount--
 }
 

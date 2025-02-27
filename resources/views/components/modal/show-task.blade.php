@@ -50,12 +50,18 @@
             </form>
         </div>
         <div class="mt-6">
-            <x-form.button>Edit Task</x-form.button>
+            <button class="block w-full h-10 rounded-[20px] text-white bg-purple hover:bg-purple-light" type="button"
+                    onclick="editTask(@json($board->id), @json($task->id))">Edit Task
+            </button>
         </div>
     </div>
 </x-modal.show-wrapper>
 
 <script type="text/javascript">
+    function editTask(boardId, taskId) {
+        window.location = `/boards/${boardId}/tasks/${taskId}/edit`;
+    }
+
     function closeShowTaskModal() {
         window.location = '/boards/{{ $board->id }}';
     }
