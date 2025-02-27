@@ -46,13 +46,15 @@
                         </li>
                     @endforeach
                     <li>
-                        <button class="px-8 py-2 mb-1 text-[15px]/6 text-purple hover:text-purple-light">+ Create New
-                            Board
+                        <button data-modal-open="create-board"
+                                class="px-8 py-2 mb-1 text-[15px]/6 text-purple hover:text-purple-light">
+                            + Create New Board
                         </button>
                     </li>
                 </ul>
             </div>
         </div>
+        <x-modal.create-board id="create-board"/>
     </aside>
 
     <main class="flex-1 h-full overflow-hidden">

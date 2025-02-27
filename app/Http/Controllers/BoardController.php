@@ -24,7 +24,7 @@
         public function storeColumn(Board $board)
         {
             $validated = request()->validate([
-                'name' => ['required'],
+                'name' => ['required', 'min:3'],
             ]);
 
             $board->columns()->create([
@@ -32,6 +32,6 @@
                 'order' => $board->columns()->count() + 1,
             ]);
 
-            return redirect("/boards/{$board->id}");
+            return redirect("/boards/$board->id")->with('success', 'create-column');
         }
     }
